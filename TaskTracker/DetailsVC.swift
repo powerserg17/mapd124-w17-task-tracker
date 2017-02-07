@@ -37,5 +37,14 @@ class DetailsVC: UIViewController {
             doneSwitch.isOn = false
         }
     }
+    
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        task.details = notesView.text
+        task.done = doneSwitch.isOn
+        task.title = titleField.text!
+        
+        _ = navigationController?.popViewController(animated: true)
+    }
 
 }

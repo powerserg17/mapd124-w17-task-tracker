@@ -9,10 +9,16 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
+    
+    let imgChecked = UIImage(named: "checkbox-checked")
+    let imgUnchecked = UIImage(named: "checkbox-unchecked")
 
     @IBOutlet var taskLabel: UILabel!
     
-    @IBOutlet var doneSwitch: UISwitch!
+    
+    @IBOutlet weak var doneBtn: UIButton!
+    
+    var doneTapAction: ((UITableViewCell) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +34,27 @@ class TaskCell: UITableViewCell {
     func updateCell(task: Task) {
         taskLabel.text = task.title
         if (task.done) {
-            doneSwitch.isOn = true
+            doneBtn.setImage(imgChecked, for: UIControlState.normal)
         } else {
-            doneSwitch.isOn = false
+            doneBtn.setImage(imgUnchecked, for: UIControlState.normal)
         }
     }
-
-    @IBAction func doneChanged(_ sender: UISwitch) {
+    
+    func updateStatus(task: Task) {
+        if task.done {
+            task.done = false
+        } else {
+            task.done = true
+        }
+        updateCell(task: task)
     }
+    
+    @IBAction func donePressed(_ sender: UIButton) {
+        doneTapAction?(self)
+    }
+    
+    
+    
+
+    
 }

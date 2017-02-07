@@ -23,7 +23,14 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         testArray.append(Task(title: "Wash dishes"))
         testArray.append(Task(title: "Finish assignment"))
         testArray.append(Task(title: "Find a job"))
+        let task = Task(title: "Don't give a shit")
+        task.done = true
+        testArray.append(task)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,7 +39,13 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell {
-            cell.updateCell(task: testArray[indexPath.row])
+            let task = testArray[indexPath.row]
+            cell.updateCell(task: task)
+            //cell.doneBtn.tag = indexPath.row
+            
+            cell.doneTapAction = { (self) in
+                cell.updateStatus(task: task)
+            }
             return cell
         } else {
             return UITableViewCell()
@@ -53,6 +66,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
 
+   
 
 }
 

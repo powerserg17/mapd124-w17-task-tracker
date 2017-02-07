@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA2A14017504BE3F82EA8890 /* Pods_TaskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F80EE89AC00E86176736D7 /* Pods_TaskTracker.framework */; };
 		F22CD6C01E4177CE00C3963F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6BF1E4177CE00C3963F /* AppDelegate.swift */; };
 		F22CD6C21E4177CE00C3963F /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6C11E4177CE00C3963F /* ListVC.swift */; };
 		F22CD6C51E4177CE00C3963F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22CD6C31E4177CE00C3963F /* Main.storyboard */; };
@@ -15,9 +16,15 @@
 		F22CD6D51E41799600C3963F /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D41E41799600C3963F /* TaskCell.swift */; };
 		F22CD6D71E4179A300C3963F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D61E4179A300C3963F /* Task.swift */; };
 		F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D81E418E5C00C3963F /* DetailsVC.swift */; };
+		F2584CAF1E47E590007FC039 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2584CAE1E47E590007FC039 /* CardView.swift */; };
+		F27105581E495AE0002108EB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27105571E495AE0002108EB /* RoundedButton.swift */; };
+		F271055A1E497730002108EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F27105591E497730002108EB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14F80EE89AC00E86176736D7 /* Pods_TaskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C86B37DC9FB66F6A395721D /* Pods-TaskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.release.xcconfig"; sourceTree = "<group>"; };
+		9CDA9B34691A238C22776F26 /* Pods-TaskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F22CD6BC1E4177CE00C3963F /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22CD6BF1E4177CE00C3963F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F22CD6C11E4177CE00C3963F /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
@@ -28,6 +35,9 @@
 		F22CD6D41E41799600C3963F /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		F22CD6D61E4179A300C3963F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F22CD6D81E418E5C00C3963F /* DetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		F2584CAE1E47E590007FC039 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F27105571E495AE0002108EB /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		F27105591E497730002108EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA2A14017504BE3F82EA8890 /* Pods_TaskTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F860458F24E268385D67A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9CDA9B34691A238C22776F26 /* Pods-TaskTracker.debug.xcconfig */,
+				4C86B37DC9FB66F6A395721D /* Pods-TaskTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D8058D7F04B39DDEB268D7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14F80EE89AC00E86176736D7 /* Pods_TaskTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F22CD6B31E4177CE00C3963F = {
 			isa = PBXGroup;
 			children = (
 				F22CD6BE1E4177CE00C3963F /* TaskTracker */,
 				F22CD6BD1E4177CE00C3963F /* Products */,
+				07F860458F24E268385D67A7 /* Pods */,
+				8D8058D7F04B39DDEB268D7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +90,7 @@
 		F22CD6BE1E4177CE00C3963F /* TaskTracker */ = {
 			isa = PBXGroup;
 			children = (
+				F27105591E497730002108EB /* GoogleService-Info.plist */,
 				F22CD6D31E41785700C3963F /* Controller */,
 				F22CD6D21E41785300C3963F /* View */,
 				F22CD6D11E41784F00C3963F /* Model */,
@@ -84,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				F22CD6D41E41799600C3963F /* TaskCell.swift */,
+				F2584CAE1E47E590007FC039 /* CardView.swift */,
+				F27105571E495AE0002108EB /* RoundedButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -104,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F22CD6CE1E4177CE00C3963F /* Build configuration list for PBXNativeTarget "TaskTracker" */;
 			buildPhases = (
+				945122E15A749E68134F62E3 /* [CP] Check Pods Manifest.lock */,
 				F22CD6B81E4177CE00C3963F /* Sources */,
 				F22CD6B91E4177CE00C3963F /* Frameworks */,
 				F22CD6BA1E4177CE00C3963F /* Resources */,
+				1A3C89D9ED9CD64354B711AF /* [CP] Embed Pods Frameworks */,
+				0F3CD24405E6D6BC3AC09FDD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,12 +194,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22CD6CA1E4177CE00C3963F /* LaunchScreen.storyboard in Resources */,
+				F271055A1E497730002108EB /* GoogleService-Info.plist in Resources */,
 				F22CD6C71E4177CE00C3963F /* Assets.xcassets in Resources */,
 				F22CD6C51E4177CE00C3963F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F3CD24405E6D6BC3AC09FDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1A3C89D9ED9CD64354B711AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaskTracker/Pods-TaskTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		945122E15A749E68134F62E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F22CD6B81E4177CE00C3963F /* Sources */ = {
@@ -174,6 +259,8 @@
 				F22CD6C21E4177CE00C3963F /* ListVC.swift in Sources */,
 				F22CD6D51E41799600C3963F /* TaskCell.swift in Sources */,
 				F22CD6C01E4177CE00C3963F /* AppDelegate.swift in Sources */,
+				F27105581E495AE0002108EB /* RoundedButton.swift in Sources */,
+				F2584CAF1E47E590007FC039 /* CardView.swift in Sources */,
 				F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +382,7 @@
 		};
 		F22CD6CF1E4177CE00C3963F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CDA9B34691A238C22776F26 /* Pods-TaskTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2BULHRS882;
@@ -308,6 +396,7 @@
 		};
 		F22CD6D01E4177CE00C3963F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C86B37DC9FB66F6A395721D /* Pods-TaskTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2BULHRS882;
@@ -338,6 +427,7 @@
 				F22CD6D01E4177CE00C3963F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
