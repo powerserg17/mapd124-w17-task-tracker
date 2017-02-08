@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ListVC.saveChanges(UIButton) -&gt; ():ListVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.(tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell).(closure #2):ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tasks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.saveChanges(Any) -&gt; ():ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.taskField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.addPressed(Any) -&gt; ():ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.(tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell).(closure #3):ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tasks">
+            </PersistentString>
+            <PersistentString
+               value = "task">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TaskCell.saveChanges(task : Task) -&gt; ():TaskCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskCell.updateCell(task : Task) -&gt; ():TaskCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskCell.creating.getter:TaskCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskCell.cellExist() -&gt; Bool:TaskCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DetailsVC.savePressed(UIButton) -&gt; ():DetailsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "specialized ListVC.(tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell).(closure #3):ListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
