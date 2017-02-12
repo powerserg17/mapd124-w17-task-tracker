@@ -120,16 +120,19 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBAction  func saveChanges(_ sender: Any) {
-            let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TaskCell
-            let task = testArray[0]
-            cell.saveChanges(task: task)
-            creating = false
-            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TaskCell
+        let task = testArray[0]
+        cell.saveChanges(task: task)
+        creating = false
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.reloadData()
+        print(creating)
     }
     
 
     @IBAction func cancelChanges(_ sender: UIButton) {
         removeFirstRow()
+        tableView.reloadData()
     }
     
     func removeFirstRow() {

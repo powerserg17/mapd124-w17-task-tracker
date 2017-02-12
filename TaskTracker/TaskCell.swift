@@ -87,8 +87,11 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func saveChanges(task: Task) {
+        print(self.addTitleField.text!)
         self.creating = false
         task.title = addTitleField.text!
+        print(task.title)
+        print(self.creating)
     }
     
 
