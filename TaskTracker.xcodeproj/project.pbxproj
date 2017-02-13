@@ -16,6 +16,8 @@
 		F22CD6D51E41799600C3963F /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D41E41799600C3963F /* TaskCell.swift */; };
 		F22CD6D71E4179A300C3963F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D61E4179A300C3963F /* Task.swift */; };
 		F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D81E418E5C00C3963F /* DetailsVC.swift */; };
+		F235B38D1E51110700E055A3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38C1E51110700E055A3 /* LoginVC.swift */; };
+		F235B3901E512F4E00E055A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38F1E512F4E00E055A3 /* User.swift */; };
 		F2584CAF1E47E590007FC039 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2584CAE1E47E590007FC039 /* CardView.swift */; };
 		F27105581E495AE0002108EB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27105571E495AE0002108EB /* RoundedButton.swift */; };
 		F271055A1E497730002108EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F27105591E497730002108EB /* GoogleService-Info.plist */; };
@@ -36,6 +38,10 @@
 		F22CD6D41E41799600C3963F /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		F22CD6D61E4179A300C3963F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F22CD6D81E418E5C00C3963F /* DetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		F235B38C1E51110700E055A3 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
+		F235B38F1E512F4E00E055A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F235B3911E5132CD00E055A3 /* TaskTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaskTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		F2584CAE1E47E590007FC039 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F27105571E495AE0002108EB /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		F27105591E497730002108EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 		F22CD6BE1E4177CE00C3963F /* TaskTracker */ = {
 			isa = PBXGroup;
 			children = (
+				F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */,
 				F27105591E497730002108EB /* GoogleService-Info.plist */,
 				F22CD6D31E41785700C3963F /* Controller */,
 				F22CD6D21E41785300C3963F /* View */,
@@ -101,6 +108,7 @@
 				F22CD6C61E4177CE00C3963F /* Assets.xcassets */,
 				F22CD6C81E4177CE00C3963F /* LaunchScreen.storyboard */,
 				F22CD6CB1E4177CE00C3963F /* Info.plist */,
+				F235B3911E5132CD00E055A3 /* TaskTracker-Bridging-Header.h */,
 			);
 			path = TaskTracker;
 			sourceTree = "<group>";
@@ -109,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F22CD6D61E4179A300C3963F /* Task.swift */,
+				F235B38F1E512F4E00E055A3 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -129,6 +138,7 @@
 			children = (
 				F22CD6C11E4177CE00C3963F /* ListVC.swift */,
 				F22CD6D81E418E5C00C3963F /* DetailsVC.swift */,
+				F235B38C1E51110700E055A3 /* LoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,7 +179,13 @@
 					F22CD6BB1E4177CE00C3963F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2BULHRS882;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -263,6 +279,8 @@
 				F22CD6D51E41799600C3963F /* TaskCell.swift in Sources */,
 				F271055C1E499800002108EB /* RoundedTextField.swift in Sources */,
 				F22CD6C01E4177CE00C3963F /* AppDelegate.swift in Sources */,
+				F235B3901E512F4E00E055A3 /* User.swift in Sources */,
+				F235B38D1E51110700E055A3 /* LoginVC.swift in Sources */,
 				F27105581E495AE0002108EB /* RoundedButton.swift in Sources */,
 				F2584CAF1E47E590007FC039 /* CardView.swift in Sources */,
 				F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */,
@@ -389,11 +407,15 @@
 			baseConfigurationReference = 9CDA9B34691A238C22776F26 /* Pods-TaskTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				DEVELOPMENT_TEAM = 2BULHRS882;
 				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = serhii.pianykh.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TaskTracker/TaskTracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -403,11 +425,14 @@
 			baseConfigurationReference = 4C86B37DC9FB66F6A395721D /* Pods-TaskTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				DEVELOPMENT_TEAM = 2BULHRS882;
 				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = serhii.pianykh.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TaskTracker/TaskTracker-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

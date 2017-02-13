@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -15,9 +14,13 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var ref : FIRDatabaseReference! = nil
     
+    var user: User? = nil
+    
     var testArray = [Task]()
     
     var creating:Bool = false
+    
+    
     
     @IBOutlet var addTaskField: UILabel!
     
@@ -27,7 +30,20 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        ref =  FIRDatabase.database().reference(withPath: "tasks")
+        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.user = User(authData: user)
+                self.navigationItem.title = user.email
+                self.ref =  FIRDatabase.database().reference(withPath: user.uid)
+                print(self.ref)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        
+        
+        
         
         testArray.append(Task(title: "Wash dishes"))
         testArray.append(Task(title: "Finish assignment"))
@@ -141,6 +157,11 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         testArray.remove(at: 0)
         creating = false
         tableView.endUpdates()
+    }
+    
+    
+    @IBAction func signOutPressed(_ sender: Any) {
+        try! FIRAuth.auth()!.signOut()
     }
 }
 

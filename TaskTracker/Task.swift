@@ -54,5 +54,13 @@ class Task {
         _done = false
     }
     
+    func toAnyObject() -> Any {
+        return [
+            "title": title,
+            "details": details ?? "",
+            "done": done
+        ]
+    }
+    
     
 }
