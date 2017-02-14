@@ -31,12 +31,17 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
+        let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool, connected {
+                self.navigationItem.titleView = CustomTitle(frame: CGRect(), user: (self.user?.email)!, status: connected)
+            }
+        })
+        
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             if let user = user {
                 self.user = User(authData: user)
                 self.navigationItem.title = user.email
-//                self.tasksRef =  self.storageRef.child(user.uid)
-//                print(self.tasksRef!)
             } else {
                 self.dismiss(animated: true, completion: nil)
             }

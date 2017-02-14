@@ -18,9 +18,10 @@
 		F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D81E418E5C00C3963F /* DetailsVC.swift */; };
 		F235B38D1E51110700E055A3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38C1E51110700E055A3 /* LoginVC.swift */; };
 		F235B3901E512F4E00E055A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38F1E512F4E00E055A3 /* User.swift */; };
+		F235B3991E52C97D00E055A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */; };
+		F235B39B1E52E5DC00E055A3 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B39A1E52E5DC00E055A3 /* CustomTitle.swift */; };
 		F2584CAF1E47E590007FC039 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2584CAE1E47E590007FC039 /* CardView.swift */; };
 		F27105581E495AE0002108EB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27105571E495AE0002108EB /* RoundedButton.swift */; };
-		F271055A1E497730002108EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F27105591E497730002108EB /* GoogleService-Info.plist */; };
 		F271055C1E499800002108EB /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271055B1E499800002108EB /* RoundedTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,9 +43,10 @@
 		F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
 		F235B38F1E512F4E00E055A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F235B3911E5132CD00E055A3 /* TaskTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaskTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F235B39A1E52E5DC00E055A3 /* CustomTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitle.swift; sourceTree = "<group>"; };
 		F2584CAE1E47E590007FC039 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F27105571E495AE0002108EB /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		F27105591E497730002108EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F271055B1E499800002108EB /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */,
-				F27105591E497730002108EB /* GoogleService-Info.plist */,
+				F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */,
 				F22CD6D31E41785700C3963F /* Controller */,
 				F22CD6D21E41785300C3963F /* View */,
 				F22CD6D11E41784F00C3963F /* Model */,
@@ -129,6 +131,7 @@
 				F2584CAE1E47E590007FC039 /* CardView.swift */,
 				F27105571E495AE0002108EB /* RoundedButton.swift */,
 				F271055B1E499800002108EB /* RoundedTextField.swift */,
+				F235B39A1E52E5DC00E055A3 /* CustomTitle.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -213,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22CD6CA1E4177CE00C3963F /* LaunchScreen.storyboard in Resources */,
-				F271055A1E497730002108EB /* GoogleService-Info.plist in Resources */,
+				F235B3991E52C97D00E055A3 /* GoogleService-Info.plist in Resources */,
 				F22CD6C71E4177CE00C3963F /* Assets.xcassets in Resources */,
 				F22CD6C51E4177CE00C3963F /* Main.storyboard in Resources */,
 			);
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22CD6D71E4179A300C3963F /* Task.swift in Sources */,
+				F235B39B1E52E5DC00E055A3 /* CustomTitle.swift in Sources */,
 				F22CD6C21E4177CE00C3963F /* ListVC.swift in Sources */,
 				F22CD6D51E41799600C3963F /* TaskCell.swift in Sources */,
 				F271055C1E499800002108EB /* RoundedTextField.swift in Sources */,
