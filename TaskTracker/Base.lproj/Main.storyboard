@@ -58,7 +58,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hTs-VU-iUF" secondAttribute="height" multiplier="1:1" id="UNC-EL-yiL"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="8927B963-0AC2-4C83-88CF-90B5BFEC0CBF"/>
+                                                    <state key="normal" title="Button" image="A0FE89C9-025B-492E-804F-87E5987A43FF"/>
                                                     <connections>
                                                         <action selector="donePressed:" destination="brN-7k-ukB" eventType="touchUpInside" id="gjw-ha-hbV"/>
                                                     </connections>
@@ -70,7 +70,7 @@
                                                     </constraints>
                                                     <state key="normal" title="OK"/>
                                                     <connections>
-                                                        <action selector="saveChanges:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIq-zR-0Fa"/>
+                                                        <action selector="saveChangesPressed:" destination="brN-7k-ukB" eventType="touchUpInside" id="ddA-SP-wQz"/>
                                                     </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQj-oI-R4w">
@@ -81,7 +81,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Cancel"/>
                                                     <connections>
-                                                        <action selector="cancelChanges:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XwA-oy-bd6"/>
+                                                        <action selector="cancelPressed:" destination="brN-7k-ukB" eventType="touchUpInside" id="SvR-Lv-Ziy"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -373,7 +373,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8927B963-0AC2-4C83-88CF-90B5BFEC0CBF" width="497" height="497">
+        <image name="A0FE89C9-025B-492E-804F-87E5987A43FF" width="497" height="497">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

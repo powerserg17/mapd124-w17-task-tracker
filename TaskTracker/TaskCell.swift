@@ -60,10 +60,12 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
     func updateStatus(task: Task) {
         if task.done {
             task.done = false
+            
         } else {
             task.done = true
         }
-        updateCell(task: task)
+        task.ref?.updateChildValues(task.toAnyObject() as! [AnyHashable : Any])
+        //updateCell(task: task)
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
@@ -80,6 +82,16 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
         cancelBtn.isHidden = false
         addTitleField.becomeFirstResponder()
     }
+    
+    func viewMode() {
+        taskLabel.isHidden = false
+        doneBtn.isHidden = false
+        addTitleField.isHidden = true
+        addTitleField.text = ""
+        saveChangesBtn.isHidden = true
+        cancelBtn.isHidden = true
+        addTitleField.resignFirstResponder()
+    }
 
     
     @IBAction func saveChangesPressed(_ sender: UIButton) {
@@ -87,11 +99,10 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func saveChanges(task: Task) {
-        print(self.addTitleField.text!)
         self.creating = false
+        task.creating = false
         task.title = addTitleField.text!
-        print(task.title)
-        print(self.creating)
+        task.ref?.updateChildValues(task.toAnyObject() as! [AnyHashable : Any])
     }
     
 
@@ -101,9 +112,14 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
-//    @IBAction func cancelPressed(_ sender: UIButton) {
-//        cancelTapAction?(self)
-//    }
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        cancelTapAction?(self)
+    }
+    
+    func cancelChanges(task: Task) {
+        self.creating = false
+        task.ref?.removeValue()
+    }
     
     
 }

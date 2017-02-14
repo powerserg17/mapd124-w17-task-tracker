@@ -12,6 +12,8 @@ class Task {
     private var _title: String!
     private var _details: String?
     private var _done: Bool!
+    private var _ref: FIRDatabaseReference?
+    private var _creating: Bool!
     
     var title: String {
         get {
@@ -43,22 +45,46 @@ class Task {
         }
     }
     
+    var ref: FIRDatabaseReference? {
+        get {
+            return _ref
+        }
+        set {
+            _ref = newValue
+        }
+    }
+    
+    var creating: Bool {
+        get {
+            return _creating
+        }
+        set {
+            _creating = newValue
+        }
+    }
+    
     init(title: String) {
         _title = title
         _done = false
+        _creating = true
     }
     
-    init(title: String, details: String) {
-        _title = title
-        _details = details
-        _done = false
+    
+    init(snapshot: FIRDataSnapshot) {
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        _title = snapshotValue["title"] as! String
+        _details = (snapshotValue["details"] as! String)
+        _done = snapshotValue["done"] as! Bool
+        _ref = snapshot.ref
+        _creating = snapshotValue["creating"] as! Bool
     }
     
     func toAnyObject() -> Any {
         return [
             "title": title,
             "details": details ?? "",
-            "done": done
+            "done": done,
+            "creating": creating
         ]
     }
     

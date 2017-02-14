@@ -12,11 +12,12 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
-    var ref : FIRDatabaseReference! = nil
+    let storageRef = FIRDatabase.database().reference(withPath: "storage")
+    var tasksRef: FIRDatabaseReference? = nil
     
     var user: User? = nil
     
-    var testArray = [Task]()
+    var tasks = [Task]()
     
     var creating:Bool = false
     
@@ -34,25 +35,33 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if let user = user {
                 self.user = User(authData: user)
                 self.navigationItem.title = user.email
-                self.ref =  FIRDatabase.database().reference(withPath: user.uid)
-                print(self.ref)
+//                self.tasksRef =  self.storageRef.child(user.uid)
+//                print(self.tasksRef!)
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
             
         }
+        tasksRef = storageRef.child((FIRAuth.auth()?.currentUser?.uid)!)
         
-        
-        
-        
-        testArray.append(Task(title: "Wash dishes"))
-        testArray.append(Task(title: "Finish assignment"))
-        testArray.append(Task(title: "Find a job"))
-        let task = Task(title: "Don't give a shit")
-        task.done = true
-        testArray.append(task)
-        
-        
+        tasksRef?.queryOrdered(byChild: "done").observe(.value, with: { snapshot in
+            var newTasks = [Task]()
+            var tasksInProgress = false
+            for item in snapshot.children {
+                let task = Task(snapshot: item as! FIRDataSnapshot)
+                if task.creating {
+                    tasksInProgress = true
+                }
+                newTasks.append(task)
+            }
+            if tasksInProgress {
+                self.creating = true
+            } else {
+                self.creating = false
+            }
+            self.tasks = newTasks
+            self.tableView.reloadData()
+        })
         
     }
     
@@ -61,29 +70,32 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell {
-            let task = testArray[indexPath.row]
+            let task = tasks[indexPath.row]
             
-            cell.updateCell(task: task)
+            if task.creating {
+                cell.creating = true
+            }
             
             cell.doneTapAction = { (self) in
                 cell.updateStatus(task: task)
             }
             
-//            cell.saveTapAction = { (self) in
-//                cell.saveChanges(task: task)
-//                tableView.reloadRows(at: [indexPath], with: .automatic)
-//            }
-//
-//            cell.cancelTapAction = {(self) in
-//                tableView.beginUpdates()
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//                tableView.endUpdates()
-//            }
+            cell.saveTapAction = { (self) in
+                cell.saveChanges(task: task)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+
+            cell.cancelTapAction = {(self) in
+                cell.cancelChanges(task: task)
+                //tableView.reloadRows(at: [indexPath], with: .automatic)
+                
+            }
+            cell.updateCell(task: task)
             return cell
         } else {
             return UITableViewCell()
@@ -91,7 +103,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = testArray[indexPath.row]
+        let task = tasks[indexPath.row]
         performSegue(withIdentifier: "DetailsVC", sender: task)
     }
     
@@ -101,63 +113,80 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if let task = sender as? Task {
                 destination.task = task
             }
+            
             if creating {
-                 if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as? TaskCell {
-                    removeFirstRow()
-                    cell.creating = false
+                for task in tasks {
+                    if task.creating {
+                        task.ref?.removeValue()
+                    }
                 }
             }
+//            if creating {
+//                 if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as? TaskCell {
+//                    removeFirstRow()
+//                    cell.creating = false
+//                }
+//            }
         }
     }
 
     @IBAction func addPressed(_ sender: Any) {
         if !creating {
-            creating = true
-            tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-            testArray.insert(Task(title: ""), at: 0)
-            tableView.endUpdates()
-            tableView.reloadData()
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as! TaskCell
-                        cell.creating = true
-            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+            //creating = true
+//            tableView.beginUpdates()
+//            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+//            tasks.insert(Task(title: ""), at: 0)
+//            tableView.endUpdates()
+//            tableView.reloadData()
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as! TaskCell
+//                        cell.creating = true
+//            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
             //tableView.reloadData()
+            let task = Task(title: "")
+            let taskRef = self.tasksRef!.childByAutoId()
+            task.ref = taskRef
+            taskRef.setValue(task.toAnyObject())
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            testArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let task = tasks[indexPath.row]
+            task.ref?.removeValue()
         }
     }
     
     
     
     
-    @IBAction  func saveChanges(_ sender: Any) {
-        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TaskCell
-        let task = testArray[0]
-        cell.saveChanges(task: task)
-        creating = false
-        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-        tableView.reloadData()
-        print(creating)
-    }
-    
+//    @IBAction  func saveChanges(_ sender: Any) {
+//        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TaskCell
+//        let task = tasks[0]
+//        cell.saveChanges(task: task)
+//        creating = false
+//        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+//        tableView.reloadData()
+//        let taskRef = self.tasksRef!.childByAutoId()
+//        task.id = taskRef.key
+//        taskRef.setValue(task.toAnyObject())
+//    }
+//    
 
-    @IBAction func cancelChanges(_ sender: UIButton) {
-        removeFirstRow()
-        tableView.reloadData()
-    }
+//    @IBAction func cancelChanges(_ sender: UIButton) {
+//        removeFirstRow()
+//        tableView.reloadData()
+//    }
     
-    func removeFirstRow() {
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-        testArray.remove(at: 0)
-        creating = false
-        tableView.endUpdates()
-    }
+//    func removeFirstRow() {
+//        tableView.beginUpdates()
+//        tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+//        tasks.remove(at: 0)
+//        creating = false
+//        tableView.endUpdates()
+//        creating = false
+//        let task = tasks[0]
+//        task.ref?.removeValue()
+//    }
     
     
     @IBAction func signOutPressed(_ sender: Any) {

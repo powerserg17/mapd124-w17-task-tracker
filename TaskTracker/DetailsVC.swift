@@ -44,6 +44,8 @@ class DetailsVC: UIViewController {
         task.done = doneSwitch.isOn
         task.title = titleField.text!
         
+        task.ref?.updateChildValues(task.toAnyObject() as! [AnyHashable : Any])
+        
         _ = navigationController?.popViewController(animated: true)
     }
 
