@@ -102,6 +102,7 @@ class TaskCell: UITableViewCell, UITextFieldDelegate {
         self.creating = false
         task.creating = false
         task.title = addTitleField.text!
+        self.viewMode()
         task.ref?.updateChildValues(task.toAnyObject() as! [AnyHashable : Any])
     }
     

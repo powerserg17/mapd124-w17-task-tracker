@@ -17,9 +17,15 @@
          contextName = "ListVC.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ListVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "testArray">
+               value = "indexPath.row">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ListVC.(viewDidLoad() -&gt; ()).(closure #2):ListVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Task.init(snapshot : FIRDataSnapshot) -&gt; Task:Task.swift">
       </ContextState>
       <ContextState
          contextName = "ListVC.(tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell).(closure #3):ListVC.swift">
