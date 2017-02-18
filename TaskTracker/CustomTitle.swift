@@ -37,7 +37,7 @@ class CustomTitle: UIView {
         self.user = UILabel(frame: CGRect(x:0, y:-2, width:0, height:0))
         
         self.user.backgroundColor = UIColor.clear
-        self.user.textColor = UIColor.init(colorLiteralRed: 244, green: 96, blue: 54, alpha: 1)
+        self.user.textColor = UIColor.init(colorLiteralRed: 244/255, green: 120/255, blue: 54/255, alpha: 1)
         self.user.font = UIFont.boldSystemFont(ofSize: 17)
         self.user.text = user
         self.user.sizeToFit()

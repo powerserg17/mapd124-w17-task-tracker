@@ -58,7 +58,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hTs-VU-iUF" secondAttribute="height" multiplier="1:1" id="UNC-EL-yiL"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="9806BC8D-B9A6-466C-AB1D-E533C7585DC9"/>
+                                                    <state key="normal" title="Button" image="31D27F30-3DB1-4A7B-9C1F-1B2C0C7F2107"/>
                                                     <connections>
                                                         <action selector="donePressed:" destination="brN-7k-ukB" eventType="touchUpInside" id="gjw-ha-hbV"/>
                                                     </connections>
@@ -173,7 +173,7 @@
                                 <rect key="frame" x="16" y="50" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqh-XQ-DUo">
@@ -188,7 +188,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="YPF-gc-hoZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaa-HW-Aas">
@@ -310,7 +310,7 @@
                                     <action selector="createAccount:" destination="srz-y6-fz4" eventType="touchUpInside" id="fgj-ts-xTJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZlO-T1-yYF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZlO-T1-yYF">
                                 <rect key="frame" x="46" y="30" width="283" height="282"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZlO-T1-yYF" secondAttribute="height" constant="1" id="0bJ-Bf-Ubr"/>
@@ -352,7 +352,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nsl-F0-6Pq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="ahM-th-1sj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ahM-th-1sj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,7 +373,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9806BC8D-B9A6-466C-AB1D-E533C7585DC9" width="497" height="497">
+        <image name="31D27F30-3DB1-4A7B-9C1F-1B2C0C7F2107" width="497" height="497">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -16913,5 +16913,6 @@ DAAPIhMADyIbAA8iKAAPIi0ADyIvAA8iMQAPIjYADyI+AA8iQQAPIkYADyJOAA8iUQAPImMADyJmAA8i
 awAAAAAAAAQBAAAAAAAAAD4AAAAAAAAAAAAAAAAADyJtA
 </mutableData>
         </image>
+        <image name="logo" width="493" height="529"/>
     </resources>
 </document>
