@@ -1,10 +1,11 @@
 //
 //  Task.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-01-31.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  Model class for task
 
 import Foundation
 
@@ -69,7 +70,7 @@ class Task {
         _creating = true
     }
     
-    
+    //creating task from snapshot taken from FBDB
     init(snapshot: FIRDataSnapshot) {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         _title = snapshotValue["title"] as! String

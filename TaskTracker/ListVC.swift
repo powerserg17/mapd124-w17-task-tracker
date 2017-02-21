@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
+//  ListVC.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-01-31.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  ViewController with all tasks listed
 
 import UIKit
 
 class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    
+    //defining references for db
     let storageRef = FIRDatabase.database().reference(withPath: "storage")
     var tasksRef: FIRDatabaseReference? = nil
     
@@ -31,6 +32,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
+        //getting online/offline status
         let connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
         connectedRef.observe(.value, with: { snapshot in
             if let connected = snapshot.value as? Bool, connected {
@@ -38,6 +40,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         })
         
+        //observing changes in login status (basically we look, if currentuser exist)
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             if let user = user {
                 self.user = User(authData: user)
@@ -47,8 +50,11 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
             
         }
+        
+        //assigning current user to his storage
         tasksRef = storageRef.child((FIRAuth.auth()?.currentUser?.uid)!)
         
+        //observing changes and uploading data from db and updating tableview
         tasksRef?.queryOrdered(byChild: "done").observe(.value, with: { snapshot in
             var newTasks = [Task]()
             var tasksInProgress = false
@@ -85,21 +91,19 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if task.creating {
                 cell.creating = true
             }
-            
+            //defining actions for cell closures
             cell.doneTapAction = { (self) in
                 cell.updateStatus(task: task)
             }
             
             cell.saveTapAction = { (self) in
                 cell.saveChanges(task: task)
-                //tableView.reloadRows(at: [indexPath], with: .automatic)
             }
 
             cell.cancelTapAction = {(self) in
                 cell.cancelChanges(task: task)
-                //tableView.reloadRows(at: [indexPath], with: .automatic)
-                
             }
+            //assigning task parameters to cell
             cell.updateCell(task: task)
             return cell
         } else {
@@ -112,7 +116,8 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "DetailsVC", sender: task)
     }
     
-    
+    //we have set up Task object as a sender in performSegue. here we check if it's so and sending Task object to next VC
+    //if some of cells were in creation mode (with textfield shown) - cell being deleted
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailsVC {
             if let task = sender as? Task {
@@ -126,27 +131,12 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
-//            if creating {
-//                 if let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as? TaskCell {
-//                    removeFirstRow()
-//                    cell.creating = false
-//                }
-//            }
         }
     }
 
+    //create new task. it's going to be in creation mode (from init), so after table view updated textfield gonna be shown
     @IBAction func addPressed(_ sender: Any) {
         if !creating {
-            //creating = true
-//            tableView.beginUpdates()
-//            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-//            tasks.insert(Task(title: ""), at: 0)
-//            tableView.endUpdates()
-//            tableView.reloadData()
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: IndexPath(row: 0, section: 0)) as! TaskCell
-//                        cell.creating = true
-//            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-            //tableView.reloadData()
             let task = Task(title: "")
             let taskRef = self.tasksRef!.childByAutoId()
             task.ref = taskRef
@@ -154,6 +144,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    //swipe for delete
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let task = tasks[indexPath.row]
@@ -161,39 +152,7 @@ class ListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
-    
-    
-//    @IBAction  func saveChanges(_ sender: Any) {
-//        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TaskCell
-//        let task = tasks[0]
-//        cell.saveChanges(task: task)
-//        creating = false
-//        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-//        tableView.reloadData()
-//        let taskRef = self.tasksRef!.childByAutoId()
-//        task.id = taskRef.key
-//        taskRef.setValue(task.toAnyObject())
-//    }
-//    
-
-//    @IBAction func cancelChanges(_ sender: UIButton) {
-//        removeFirstRow()
-//        tableView.reloadData()
-//    }
-    
-//    func removeFirstRow() {
-//        tableView.beginUpdates()
-//        tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-//        tasks.remove(at: 0)
-//        creating = false
-//        tableView.endUpdates()
-//        creating = false
-//        let task = tasks[0]
-//        task.ref?.removeValue()
-//    }
-    
-    
+    //sign out
     @IBAction func signOutPressed(_ sender: Any) {
         try! FIRAuth.auth()!.signOut()
     }

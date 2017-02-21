@@ -1,10 +1,11 @@
 //
 //  CustomTitle.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-02-14.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  Class inherited from UIView to create a custom title in the navbar with username and status
 
 import Foundation
 import UIKit

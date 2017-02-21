@@ -1,10 +1,11 @@
 //
 //  LoginVC.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-02-12.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  ViewController for login and signing up with Firebase
 
 import UIKit
 
@@ -15,6 +16,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
+    //if user logged in - proceed
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
@@ -24,6 +26,8 @@ class LoginVC: UIViewController {
         }
     }
     
+    //sign in or sign up with firebase by email/pass
+    //alert on empty fields
     @IBAction func signInUpPressed(_ sender: UIButton) {
         if !emailField.text!.isEmpty && !emailField.text!.isEmpty {
             switch (sender.titleLabel!.text!) {
@@ -45,6 +49,7 @@ class LoginVC: UIViewController {
         }
     }
     
+    //login to FB with email and pass
     func login(email: String, password: String) {
         FIRAuth.auth()!.signIn(withEmail: email,
                                password: password) {user, error in
@@ -54,7 +59,7 @@ class LoginVC: UIViewController {
         }
     }
     
-    
+    //func for showing alert with passed title and message
     func showAlert(alertTitle: String, alertMessage: String) {
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         
@@ -66,12 +71,13 @@ class LoginVC: UIViewController {
         
     }
     
+    //clear textfields
     func clearFields() {
         self.emailField.text = ""
         self.passwordField.text = ""
     }
 
-    
+    //change button title
     @IBAction func createAccount(_ sender: UIButton) {
         signInUpBtn.setTitle("Sign Up", for: .normal)
         sender.isHidden = true

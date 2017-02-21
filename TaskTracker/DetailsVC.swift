@@ -1,10 +1,11 @@
 //
 //  DetailsVC.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-01-31.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  ViewController with detailed information about selected task. Can be edited
 
 import UIKit
 
@@ -26,6 +27,7 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var notesView: UITextView!
     @IBOutlet weak var doneSwitch: UISwitch!
     
+    //load passed task parameters to view
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +40,7 @@ class DetailsVC: UIViewController {
         }
     }
     
-    
+    //update storage and go back to ListVC
     @IBAction func savePressed(_ sender: UIButton) {
         task.details = notesView.text
         task.done = doneSwitch.isOn

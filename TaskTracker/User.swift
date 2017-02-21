@@ -1,10 +1,11 @@
 //
-//  File.swift
+//  User.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-02-12.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  Model class for user
 
 import Foundation
 

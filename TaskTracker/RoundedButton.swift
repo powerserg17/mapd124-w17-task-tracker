@@ -1,10 +1,11 @@
 //
 //  RoundedButton.swift
 //  TaskTracker
-//
+//  300907406
 //  Created by Serhii Pianykh on 2017-02-06.
 //  Copyright © 2017 Serhii Pianykh. All rights reserved.
 //
+//  Extension for UIButton class to make it rounded
 
 import UIKit
 
