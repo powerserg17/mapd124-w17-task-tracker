@@ -17,7 +17,6 @@
 		F22CD6D91E418E5C00C3963F /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CD6D81E418E5C00C3963F /* DetailsVC.swift */; };
 		F235B38D1E51110700E055A3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38C1E51110700E055A3 /* LoginVC.swift */; };
 		F235B3901E512F4E00E055A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B38F1E512F4E00E055A3 /* User.swift */; };
-		F235B3991E52C97D00E055A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */; };
 		F235B39B1E52E5DC00E055A3 /* CustomTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F235B39A1E52E5DC00E055A3 /* CustomTitle.swift */; };
 		F26FA41C1E58DAAA0084F4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F26FA41B1E58DAAA0084F4D2 /* Assets.xcassets */; };
 		F27105581E495AE0002108EB /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27105571E495AE0002108EB /* RoundedButton.swift */; };
@@ -41,7 +40,6 @@
 		F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
 		F235B38F1E512F4E00E055A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F235B3911E5132CD00E055A3 /* TaskTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaskTracker-Bridging-Header.h"; sourceTree = "<group>"; };
-		F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F235B39A1E52E5DC00E055A3 /* CustomTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitle.swift; sourceTree = "<group>"; };
 		F26FA41B1E58DAAA0084F4D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F27105571E495AE0002108EB /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				F235B38E1E511A5000E055A3 /* TaskTracker.entitlements */,
-				F235B3981E52C97D00E055A3 /* GoogleService-Info.plist */,
 				F22CD6D31E41785700C3963F /* Controller */,
 				F22CD6D21E41785300C3963F /* View */,
 				F22CD6D11E41784F00C3963F /* Model */,
@@ -213,7 +210,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22CD6CA1E4177CE00C3963F /* LaunchScreen.storyboard in Resources */,
-				F235B3991E52C97D00E055A3 /* GoogleService-Info.plist in Resources */,
 				F26FA41C1E58DAAA0084F4D2 /* Assets.xcassets in Resources */,
 				F22CD6C51E4177CE00C3963F /* Main.storyboard in Resources */,
 			);
