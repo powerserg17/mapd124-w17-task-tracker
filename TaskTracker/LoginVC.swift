@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
     //sign in or sign up with firebase by email/pass
     //alert on empty fields
     @IBAction func signInUpPressed(_ sender: UIButton) {
-        if !emailField.text!.isEmpty && !emailField.text!.isEmpty {
+        if !emailField.text!.isEmpty && !passwordField.text!.isEmpty {
             switch (sender.titleLabel!.text!) {
                 case "Sign In":
                     self.login(email: emailField.text!, password: passwordField.text!)
